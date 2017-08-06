@@ -8,6 +8,8 @@ It contains the following:
 2. A code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md.
 3. A tidy dataset called tidy.txt that is the result of the run_analysis.R script.
 
+Please note when using the R script for your own purposes, be sure to set the working directory for the correct file path on your own computer. There is a line of code at the beginning of the script to do this using setwd().
+
 The run_analysis.R script does the following:
 
 1. Merges the training and the test sets to create one data set.
