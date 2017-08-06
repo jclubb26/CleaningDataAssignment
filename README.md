@@ -1,5 +1,4 @@
 # CleaningDataAssignment
-Coursera Getting and Cleaning Data Module Assignment
 
 This repo is submitted for the Getting and Cleaning Data Course Project. 
 
