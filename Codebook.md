@@ -119,7 +119,7 @@ names(meansd_data) <- gsub("std()", "SD", names(meansd_data))
 
 names(meansd_data) <- gsub("\\()", "", names(meansd_data))
 
-An independent tidy data set was created with the aerag of each variable for each activity and each subject using melt and dcast from the reshape2 library.
+An independent tidy data set was created with the average of each variable for each activity and each subject using melt and dcast from the reshape2 library. This tidy data set meets the principle of long format - for more information please refer to Hadley Wickham's paper on Tidy Data (2014): http://vita.had.co.nz/papers/tidy-data.html 
 
 require(reshape2)
 
