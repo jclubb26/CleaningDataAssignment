@@ -103,9 +103,31 @@ The columns with measurements of the mean and standard deviation plus the subjec
 
 A subset of the activity labels text file was used to replace the numeric class of activity labels in the data set to use the descriptive activity activities.
 
-Column names were labelled more appropriately as more descriptive names using gsub.
+Column names were labelled more appropriately as more descriptive names using gsub as follows:
+
+names(meansd_data) <- gsub("-", ".", names(meansd_data))
+
+names(meansd_data) <- gsub("f", "Freq.", names(meansd_data))
+
+names(meansd_data) <- gsub("tB", "Time.B", names(meansd_data))
+
+names(meansd_data) <- gsub("tG", "Time.G", names(meansd_data))
+
+names(meansd_data) <- gsub("mean()", "Avg", names(meansd_data))
+
+names(meansd_data) <- gsub("std()", "SD", names(meansd_data))
+
+names(meansd_data) <- gsub("\\()", "", names(meansd_data))
 
 An independent tidy data set was created with the aerag of each variable for each activity and each subject using melt and dcast from the reshape2 library.
 
+require(reshape2)
+
+mean_data <- melt(meansd_data, id = c("subjectID", "activityLabels"))
+
+summary_data <- dcast(mean_data, subjectID + activityLabels ~ variable, mean)
+
 This data set was saved as a text file called tidy.txt using write.table.
+
+write.table(summary_data, file = "tidy.txt")
 
