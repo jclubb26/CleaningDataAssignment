@@ -7,17 +7,20 @@ The folder for this project data is located here:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 Experimental Design and Background
+
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz were captured. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
 Raw Data
+
 For each record it is provided:
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
 - A 561-feature vector with time and frequency domain variables. 
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
+
 The dataset includes the following files:
 - 'README.txt'
 - 'features_info.txt': Shows information about the variables used on the feature vector.
@@ -95,9 +98,14 @@ Activity Labels
 Processed Data
 
 The training and test datasets were imported. The train data sets (subject, y, X) and the test data sets (subject, y, X) were merged using cbind, and then these datasets were merged using rbind to create one data et.
+
 The columns with measurements of the mean and standard deviation plus the subject ID and activity labels were selected using grepl and incorporated into a logical vector. This logical vector was used to subset a new data set with only these columns included.
+
 A subset of the activity labels text file was used to replace the numeric class of activity labels in the data set to use the descriptive activity activities.
+
 Column names were labelled more appropriately as more descriptive names using gsub.
+
 An independent tidy data set was created with the aerag of each variable for each activity and each subject using melt and dcast from the reshape2 library.
-This data set was sved as a text file called tidy.txt using write.table.
+
+This data set was saved as a text file called tidy.txt using write.table.
 
